@@ -20,7 +20,8 @@ import {
   FileCheck,
   X,
   CheckSquare,
-  UserCheck
+  UserCheck,
+  FileText
 } from "lucide-react";
 
 const ROLE_LINKS = {
@@ -33,6 +34,7 @@ const ROLE_LINKS = {
     { name: "هيئة التدريس", href: "/admin/teachers", icon: BookOpen },
     { name: "الجدول الدراسي", href: "/admin/schedule", icon: CalendarDays },
     { name: "الرسوم المالية", href: "/admin/finance", icon: CreditCard },
+    { name: "إدارة المحتوى", href: "/admin/cms", icon: FileText },
     { name: "التنبيهات", href: "/admin/notifications", icon: Bell },
     { name: "الإعدادات", href: "/admin/settings", icon: Settings },
   ],
@@ -59,10 +61,12 @@ const ROLE_LINKS = {
     { name: "تحضير الطلاب", href: "/staff/student-preparation", icon: UserCheck },
     { name: "رصد الدرجات", href: "/staff/grading", icon: FileCheck },
     { name: "المهام", href: "/staff/missions", icon: CheckSquare },
+    { name: "إدارة المحتوى", href: "/staff/cms", icon: FileText },
     { name: "التنبيهات", href: "/staff/notifications", icon: Bell },
     { name: "الإعدادات", href: "/staff/settings", icon: Settings },
   ]
 };
+
 
 export default function DashboardLayout({
   children,

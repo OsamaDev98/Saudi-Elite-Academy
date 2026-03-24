@@ -1,15 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Target, Heart, Lightbulb, Users, Award } from "lucide-react";
+import { getPageSections } from "@/lib/supabase/queries";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const sections = await getPageSections('about');
+  
+  const heroTitle = sections['hero_title']?.content || "عن أكاديميتنا";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2000&auto=format&fit=crop";
+  const founderMessage = sections['founder_message']?.content || "بدأت فكرة النخبة السعودية من إيمان عميق بأن أبناءنا يستحقون تعليماً يضاهي أقوى المعايير العالمية، دون التخلي عن هويتهم العربية والإسلامية وثقافتهم الأصيلة.";
+  const founderImage = sections['founder_message']?.image || "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000&auto=format&fit=crop";
+
   return (
     <div className="w-full flex-grow">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full mt-[-96px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-background-dark">
           <Image
-            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Academy Building"
             className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
             fill
@@ -25,7 +33,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">تاريخ من العراقة والتميز</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-            عن <span className="text-gradient">أكاديميتنا</span>
+            {heroTitle}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
             منذ تأسيسنا، نلتزم بتقديم تجربة تعليمية استثنائية تجمع بين الأصالة والمعاصرة لتهيئة قادة الغد.
@@ -41,7 +49,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl -z-10 rounded-full"></div>
               <div className="relative h-[600px] w-full rounded-tr-[5rem] rounded-bl-[5rem] overflow-hidden shadow-premium border-8 border-white dark:border-white/5 group">
                 <Image
-                  src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000&auto=format&fit=crop"
+                  src={founderImage}
                   alt="Founder of the Academy"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -59,12 +67,10 @@ export default function AboutPage() {
                 <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm">رسالة المؤسس</h2>
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 leading-tight">نبني الإنسان <br />قبل البنيان</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 leading-relaxed">
-                بدأت فكرة النخبة السعودية من إيمان عميق بأن أبناءنا يستحقون تعليماً يضاهي أقوى المعايير العالمية، دون التخلي عن هويتهم العربية والإسلامية وثقافتهم الأصيلة.
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 leading-relaxed whitespace-pre-line">
+                {founderMessage}
               </p>
-              <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed">
-                نحن لسنا مجرد مدرسة، بل منصة إطلاق للأحلام والطموحات. نوفر بيئة راقية حاضنة للابتكار، نشجع التفكير النقدي، ونعزز روح القيادة لدى كل طالب يمر عبر أبوابنا.
-              </p>
+
 
               <div className="flex items-center gap-6 p-6 rounded-3xl bg-white dark:bg-white/5 shadow-sm border border-slate-100 dark:border-white/10 w-fit">
                 <div className="w-16 h-16 rounded-2xl bg-slate-200 overflow-hidden relative shadow-inner">

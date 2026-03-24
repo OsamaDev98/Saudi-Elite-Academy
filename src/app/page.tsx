@@ -13,8 +13,17 @@ import {
   Award,
   Sparkles
 } from "lucide-react";
+import { getLatestNews, getPageSections } from "@/lib/supabase/queries";
 
-export default function Home() {
+export default async function Home() {
+  const latestNews = await getLatestNews(3);
+  const sections = await getPageSections('home');
+
+  const heroTitle = sections['hero_title']?.content || "تمكين قادة الغد";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=2000&auto=format&fit=crop";
+  const heroDescription = sections['hero_description']?.content || "مؤسسة مرموقة ملتزمة بالتميز الأكاديمي، والقيم الوطنية، وإعداد الطلاب للقيادة العالمية في المملكة العربية السعودية الحديثة.";
+  const visionText = sections['vision_text']?.content || "أن نكون مركزاً عالمياً للتميز التعليمي الذي يرعى التطور الفكري والأخلاقي والاجتماعي لكل طالب.";
+
   return (
     <div className="w-full flex-grow">
       {/* Hero Section */}
@@ -22,7 +31,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-background-dark/95 via-background-dark/70 to-transparent z-10"></div>
           <Image
-            src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Saudi Elite Academy Campus"
             fill
             className="w-full h-full object-cover"
@@ -36,10 +45,10 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">التميز في التعليم المتقدم</span>
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white leading-[1.1] mb-8">
-              تمكين <span className="text-gradient">قادة</span> الغد
+              {heroTitle}
             </h1>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-xl font-medium">
-              مؤسسة مرموقة ملتزمة بالتميز الأكاديمي، والقيم الوطنية، وإعداد الطلاب للقيادة العالمية في المملكة العربية السعودية الحديثة.
+              {heroDescription}
             </p>
             <div className="flex flex-wrap gap-5">
               <Link href="/admissions" className="bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-2xl font-black text-lg shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
@@ -88,7 +97,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-5xl font-black mb-8 text-slate-900 cursor-default leading-tight">الرؤية <span className="text-gradient">والرسالة</span></h3>
                 <p className="text-slate-600 text-xl leading-relaxed mb-8">
-                  أن نكون مركزاً عالمياً للتميز التعليمي الذي يرعى التطور الفكري والأخلاقي والاجتماعي لكل طالب.
+                  {visionText}
                 </p>
               </div>
               <div className="space-y-6">
@@ -190,64 +199,40 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
-            {/* News Card 1 */}
-            <Link href="/news/2" className="group bg-white rounded-[2.5rem] p-4 shadow-sm hover:shadow-premium transition-all duration-500 border border-slate-100">
-              <div className="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-6 shadow-inner">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10 w-full h-full"></div>
-                <Image
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2000&auto=format&fit=crop"
-                  alt="Saudi National Day"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 w-full h-full text-transparent"
-                />
-                <div className="absolute top-4 right-4 glass text-slate-900 font-black px-4 py-2 rounded-xl text-sm z-20 shadow-sm border border-white/40">
-                  23 سبتمبر
-                </div>
+            {latestNews.length > 0 ? (
+              latestNews.map((news) => (
+                <Link
+                  key={news.id}
+                  href={`/news/${news.slug || news.id}`}
+                  className="group bg-white rounded-[2.5rem] p-4 shadow-sm hover:shadow-premium transition-all duration-500 border border-slate-100"
+                >
+                  <div className="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-6 shadow-inner">
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10 w-full h-full"></div>
+                    <Image
+                      src={news.image_url || "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2000&auto=format&fit=crop"}
+                      alt={news.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 w-full h-full text-transparent"
+                    />
+                    {news.published_at && (
+                      <div className="absolute top-4 right-4 glass text-slate-900 font-black px-4 py-2 rounded-xl text-sm z-20 shadow-sm border border-white/40">
+                        {new Date(news.published_at).toLocaleDateString('ar-SA', { day: 'numeric', month: 'long' })}
+                      </div>
+                    )}
+                  </div>
+                  <div className="px-2 pb-4">
+                    <h4 className="text-2xl font-black text-slate-900 group-hover:text-primary transition-colors mb-3 leading-tight">{news.title}</h4>
+                    <p className="text-slate-500 line-clamp-2 leading-relaxed">{news.excerpt}</p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full py-20 text-center text-slate-400 font-bold border-2 border-dashed border-slate-100 rounded-[2.5rem]">
+                لا توجد أخبار حالياً
               </div>
-              <div className="px-2 pb-4">
-                <h4 className="text-2xl font-black text-slate-900 group-hover:text-primary transition-colors mb-3 leading-tight">الاحتفال باليوم الوطني السعودي 93</h4>
-                <p className="text-slate-500 line-clamp-2 leading-relaxed">يوم من الفخر والثقافة والتقاليد حيث اجتمعت عائلة الأكاديمية للاحتفال بجذورنا وتراثنا الوطني الغني.</p>
-              </div>
-            </Link>
-            {/* News Card 2 */}
-            <Link href="/news/1" className="group bg-white rounded-[2.5rem] p-4 shadow-sm hover:shadow-premium transition-all duration-500 border border-slate-100">
-              <div className="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-6 shadow-inner">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10 w-full h-full"></div>
-                <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                  alt="Science Event"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 w-full h-full text-transparent"
-                />
-                <div className="absolute top-4 right-4 glass text-slate-900 font-black px-4 py-2 rounded-xl text-sm z-20 shadow-sm border border-white/40">
-                  15 أكتوبر
-                </div>
-              </div>
-              <div className="px-2 pb-4">
-                <h4 className="text-2xl font-black text-slate-900 group-hover:text-primary transition-colors mb-3 leading-tight">معرض الابتكار والعلوم السنوي</h4>
-                <p className="text-slate-500 line-clamp-2 leading-relaxed">قدم طلابنا مشاريع رائدة تتناول الاستدامة المستقبلية وتكامل الذكاء الاصطناعي في بيئة المعرفة المعاصرة.</p>
-              </div>
-            </Link>
-            {/* News Card 3 */}
-            <Link href="/news/3" className="group bg-white rounded-[2.5rem] p-4 shadow-sm hover:shadow-premium transition-all duration-500 border border-slate-100">
-              <div className="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-6 shadow-inner">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10 w-full h-full"></div>
-                <Image
-                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
-                  alt="Library Event"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 w-full h-full text-transparent"
-                />
-                <div className="absolute top-4 right-4 glass text-slate-900 font-black px-4 py-2 rounded-xl text-sm z-20 shadow-sm border border-white/40">
-                  10 نوفمبر
-                </div>
-              </div>
-              <div className="px-2 pb-4">
-                <h4 className="text-2xl font-black text-slate-900 group-hover:text-primary transition-colors mb-3 leading-tight">إزاحة الستار عن المكتبة الرقمية</h4>
-                <p className="text-slate-500 line-clamp-2 leading-relaxed">تعزيز قدراتنا البحثية من خلال الوصول إلى أكثر من 100,000 مجلة أكاديمية عالمية لتكون رافداً لطلابنا وإبداعهم.</p>
-              </div>
-            </Link>
+            )}
           </div>
+
         </div>
       </section>
 

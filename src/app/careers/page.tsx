@@ -1,14 +1,23 @@
 import { Briefcase, FileText, Mail, Phone, User, GraduationCap } from "lucide-react";
 import Image from "next/image";
+import { getPageSections } from "@/lib/supabase/queries";
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const sections = await getPageSections('careers');
+  
+  const heroTitle = sections['hero_title']?.content || "انضم لفريقنا";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop";
+  const heroDescription = sections['hero_description']?.content || "نبحث دائماً عن المعلمين الشغوفين والموظفين المتميزين للانضمام إلى عائلتنا التعليمية المرموقة.";
+  const formTitle = sections['form_title']?.content || "نموذج التقديم";
+  const detailsText = sections['details_text']?.content || "نحن في أكاديمية النخبة السعودية نؤمن بأن البيئة الإيجابية هي سر النجاح والإبداع. سواء كنت باحثاً عن فرصة وظيفية أو طالباً تتطلع للتميز، فإننا نوفر لك كل ما تحتاجه للوصول إلى أهدافك.";
+
   return (
     <div className="w-full flex-grow pb-20">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full mt-[-96px] flex items-center overflow-hidden mb-20">
         <div className="absolute inset-0 z-0 bg-background-dark">
           <Image
-            src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Careers Hero"
             className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
             fill
@@ -24,10 +33,10 @@ export default function CareersPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">بناء المستقبل معاً</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-            الوظائف <span className="text-gradient">والانضمام</span>
+            {heroTitle}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            انضم إلى فريق النخبة كمعلم مبدع، أو كطالب يبحث عن بيئة تعليمية محفزة ترتقي بقدراته.
+            {heroDescription}
           </p>
         </div>
       </section>
@@ -38,7 +47,7 @@ export default function CareersPage() {
           <div>
             <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-4">لماذا تنضم إلينا؟</h2>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
-              نحن في أكاديمية النخبة السعودية نؤمن بأن البيئة الإيجابية هي سر النجاح والإبداع. سواء كنت باحثاً عن فرصة وظيفية أو طالباً تتطلع للتميز، فإننا نوفر لك كل ما تحتاجه للوصول إلى أهدافك.
+              {detailsText}
             </p>
           </div>
 
@@ -69,7 +78,7 @@ export default function CareersPage() {
 
         {/* Application Form */}
         <div className="lg:col-span-7 glass-card p-10 lg:p-14">
-          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8">نموذج التقديم</h2>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8">{formTitle}</h2>
           <form className="space-y-6">
 
             <div className="space-y-4">

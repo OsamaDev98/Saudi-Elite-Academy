@@ -1,14 +1,24 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import { getPageSections } from "@/lib/supabase/queries";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const sections = await getPageSections('contact');
+  
+  const heroTitle = sections['hero_title']?.content || "تواصل معنا";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2000&auto=format&fit=crop";
+  const formTitle = sections['form_title']?.content || "أرسل رسالتك";
+  const address = sections['address']?.content || "حي العليا، شارع الأمير سلطان، الرياض، المملكة العربية السعودية";
+  const phone = sections['phone']?.content || "+966 11 123 4567";
+  const email = sections['email']?.content || "info@saudielite.edu.sa";
+
   return (
     <div className="w-full flex-grow pb-20">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full mt-[-96px] flex items-center overflow-hidden mb-20">
         <div className="absolute inset-0 z-0 bg-background-dark">
           <Image
-            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Contact Us Hero"
             className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
             fill
@@ -24,7 +34,7 @@ export default function ContactPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">نحن هنا لخدمتك</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-            تواصل <span className="text-gradient">معنا</span>
+            {heroTitle}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
             نسعد بالرد على استفساراتكم وتقديم الدعم اللازم لبدء رحلة التميز الأكاديمي.
@@ -42,9 +52,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">العنوان</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                حي العليا، شارع الأمير سلطان<br />
-                الرياض، المملكة العربية السعودية<br />
-                الرمز البريدي: 12221
+                {address}
               </p>
             </div>
           </div>
@@ -56,8 +64,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">رقم الهاتف</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg dir-ltr text-right">
-                +966 11 123 4567<br />
-                +966 50 000 0000
+                {phone}
               </p>
             </div>
           </div>
@@ -69,8 +76,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">البريد الإلكتروني</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                info@saudielite.edu.sa<br />
-                admissions@saudielite.edu.sa
+                {email}
               </p>
             </div>
           </div>
@@ -78,7 +84,7 @@ export default function ContactPage() {
 
         {/* Contact Form */}
         <div className="glass-card p-10 lg:p-14">
-          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8">أرسل رسالتك</h2>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8">{formTitle}</h2>
           <form className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="space-y-2">

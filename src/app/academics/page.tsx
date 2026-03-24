@@ -1,15 +1,27 @@
 import { BookOpen, GraduationCap, Microscope, Palette, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getPageSections } from "@/lib/supabase/queries";
 
-export default function AcademicsPage() {
+export default async function AcademicsPage() {
+  const sections = await getPageSections('academics');
+  
+  const heroTitle = sections['hero_title']?.content || "برامجنا التعليمية";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop";
+  const heroDescription = sections['hero_description']?.content || "نقدم في أكاديمية النخبة السعودية مناهج عالمية المستوى تدمج التقاليد مع الابتكار، لإعداد قادة المستقبل لنجاح عالمي.";
+
+  const curriculaTitle = sections['curricula_title']?.content || "نظرة عامة على المناهج";
+  const curriculaDesc = sections['curricula_desc']?.content || "يعتمد منهجنا على أسس تطوير المهارات الأكاديمية والعلمية بمنظور عالمي وروح وطنية، حيث نجمع بين أفضل الممارسات التعليمية العالمية مع الحفاظ على هويتنا وثقافتنا.";
+  const managerWord = sections['manager_word']?.content || "نحن لا نُدرّس الطلاب ليكونوا ناجحين اليوم فقط، بل نعدهم ليكونوا قادة ومبتكرين للغد.";
+
+
   return (
     <div className="w-full flex-grow">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full mt-[-96px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-background-dark">
           <Image
-            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Academics Hero"
             className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
             fill
@@ -25,20 +37,21 @@ export default function AcademicsPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">التميز الأكاديمي</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-            برامجنا <span className="text-gradient">التعليمية</span>
+            {heroTitle}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            نقدم في أكاديمية النخبة السعودية مناهج عالمية المستوى تدمج التقاليد مع الابتكار، لإعداد قادة المستقبل لنجاح عالمي.
+            {heroDescription}
           </p>
         </div>
       </section>
 
+
       {/* Curriculum Overview */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24 grid lg:grid-cols-2 gap-16 items-center mt-32">
         <div>
-          <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-6">مناهج تلهم العقول</h2>
+          <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-6">{curriculaTitle}</h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-            تم تصميم مناهجنا لتعزيز التفكير النقدي، وحل المشكلات، والتعلم مدى الحياة. نحن نركز على تطوير الطالب من جميع النواحي، موازنين بين الدقة الأكاديمية والنمو الإبداعي والبدني.
+            {curriculaDesc}
           </p>
           <div className="flex flex-col gap-6">
             <div className="flex gap-4">
@@ -111,15 +124,15 @@ export default function AcademicsPage() {
         </div>
       </section>
 
-      {/* Testimonial / Quote */}
+      {/* Manager Word */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center mb-24">
         <Quote className="w-16 h-16 text-primary/30 mx-auto mb-8" />
         <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-8">
-          "نحن لا نُدرّس الطلاب ليكونوا ناجحين اليوم فقط، بل نعدهم ليكونوا قادة ومبتكرين للغد."
+          "{managerWord}"
         </h2>
         <div>
-          <p className="font-bold text-lg text-primary">د. أمينة عبد الرحمن</p>
-          <p className="text-slate-500 dark:text-slate-400">المدير الأكاديمي، أكاديمية النخبة السعودية</p>
+          <p className="font-bold text-lg text-primary">المدير العام للأكاديمية</p>
+          <p className="text-slate-500 dark:text-slate-400">أكاديمية النخبة السعودية</p>
         </div>
       </section>
 

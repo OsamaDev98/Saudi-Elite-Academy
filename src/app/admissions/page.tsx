@@ -13,15 +13,25 @@ import {
   Sparkles,
   Users
 } from "lucide-react";
+import { getPageSections } from "@/lib/supabase/queries";
 
-export default function AdmissionsPage() {
+export default async function AdmissionsPage() {
+  const sections = await getPageSections('admissions');
+  
+  const heroTitle = sections['hero_title']?.content || "القبول والتسجيل";
+  const heroImage = sections['hero_title']?.image || "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000&auto=format&fit=crop";
+  const stepsTitle = sections['steps_title']?.content || "خطوات القبول والتسجيل";
+  const stepsDesc = sections['steps_desc']?.content || "رحلتك الأكاديمية تبدأ هنا";
+  const plansTitle = sections['plans_title']?.content || "باقات التميز المالي والرسوم";
+  const plansDesc = sections['plans_desc']?.content || "الاستثمار المنشود في مستقبل أبنائنا وبناتنا.";
+
   return (
     <div className="w-full flex-grow">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full mt-[-96px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-background-dark">
           <Image
-            src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000&auto=format&fit=crop"
+            src={heroImage}
             alt="Admissions"
             className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
             fill
@@ -37,7 +47,7 @@ export default function AdmissionsPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-gold">البوابة الأكاديمية</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-            انضم إلى <span className="text-gradient">النخبة</span>
+            {heroTitle}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
             عملية القبول لدينا مصممة للتعرف على الطلاب الموهوبين والشغوفين بالتعلم، ليكونوا قادة المستقبل المؤثرين في قلب المملكة.
@@ -50,8 +60,8 @@ export default function AdmissionsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 flex flex-col justify-center items-center">
-            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">رحلتك الأكاديمية تبدأ هنا</h2>
-            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">خطوات القبول والتسجيل</h3>
+            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">{stepsDesc}</h2>
+            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">{stepsTitle}</h3>
           </div>
 
           <div className="relative max-w-4xl mx-auto">
@@ -239,8 +249,8 @@ export default function AdmissionsPage() {
       <section className="py-32 bg-slate-50 dark:bg-background-dark border-b border-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 flex flex-col items-center justify-center">
-            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">الاستثمار المنشود</h2>
-            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">باقات التميز المالي</h3>
+            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">{plansDesc}</h2>
+            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">{plansTitle}</h3>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 items-center">

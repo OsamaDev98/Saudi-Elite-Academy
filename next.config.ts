@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig: any = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
@@ -11,10 +12,11 @@ const nextConfig: any = {
         protocol: 'https',
         hostname: 'plus.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'awgcnpkdwormjhuboxoi.supabase.co',
+      },
     ],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,

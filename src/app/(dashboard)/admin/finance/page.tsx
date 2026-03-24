@@ -176,7 +176,7 @@ export default function AdminFinancePage() {
                 <Tooltip 
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', textAlign: 'right', direction: 'rtl' }}
                   itemStyle={{ color: '#0ca845', fontWeight: 'bold' }}
-                  formatter={(value: number) => [`${value.toLocaleString()} ر.س`, 'الإيرادات']}
+                  formatter={(value: any) => [`${Number(value).toLocaleString()} ر.س`, 'الإيرادات']}
                   labelStyle={{ color: '#64748b', fontWeight: 'bold', marginBottom: '4px' }}
                 />
                 <Line type="monotone" dataKey="value" stroke="#0ca845" strokeWidth={3} dot={{ r: 4, strokeWidth: 2, fill: '#fff' }} activeDot={{ r: 6, fill: '#0ca845', stroke: '#fff' }} />

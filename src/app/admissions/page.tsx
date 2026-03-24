@@ -1,6 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, FileText, UserPlus, Clock } from "lucide-react";
+import {
+  CheckCircle2,
+  FileText,
+  UserPlus,
+  Clock,
+  CalendarDays,
+  Shirt,
+  CreditCard,
+  MonitorPlay,
+  BookOpen,
+  Sparkles,
+  Users
+} from "lucide-react";
 
 export default function AdmissionsPage() {
   return (
@@ -94,6 +106,130 @@ export default function AdmissionsPage() {
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-white dark:border-background-dark shadow-md hidden md:block group-hover:scale-150 transition-transform duration-500 z-20"></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Parents Portal Section */}
+      <section id="parents-portal" className="py-32 bg-slate-50 dark:bg-background-dark border-b border-primary/5 relative scroll-mt-24">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20 flex flex-col items-center justify-center">
+            <div className="w-20 h-20 rounded-3xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+              <Users className="w-10 h-10" />
+            </div>
+            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">خدمات أولياء الأمور</h2>
+            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">بوابة أولياء الأمور</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-6 max-w-2xl text-lg leading-relaxed">
+              منصة متكاملة تمكّن أولياء الأمور من متابعة المسيرة التعليمية لأبنائهم والوصول إلى جميع الخدمات المتاحة بسهولة وشفافية.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="flex flex-col p-10 bg-slate-50 dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <CalendarDays className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">التقويم المهني</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                تتبع الأحداث والمواعيد الأكاديمية المهمة والأنشطة المدرسية على مدار العام الدراسي بكل سهولة.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">جدول الاختبارات والإجازات الرسمية</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">مواعيد الفعاليات والأنشطة المدرسية</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">تنبيهات تلقائية بالمواعيد القادمة</span></li>
+              </ul>
+            </div>
+            <div className="flex flex-col p-10 bg-slate-50 dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <Shirt className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">متجر الزي</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                طلب الزي المدرسي الرسمي ومتابعة حالة الطلبات بسهولة تامة عبر المنصة الإلكترونية.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">طلب الزي الموحد إلكترونياً</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">اختيار المقاسات والألوان المتاحة</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">تتبع حالة الطلب حتى الاستلام</span></li>
+              </ul>
+            </div>
+            <div className="flex flex-col p-10 bg-slate-50 dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <CreditCard className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">الرسوم والمالية</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                إدارة المدفوعات والرسوم الدراسية والاطلاع على كشوف الحساب المالية بشكل مفصل.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">كشف حساب مفصل وقابل للتحميل</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">خيارات سداد مرنة ومتعددة</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">إشعارات بمواعيد الاستحقاق</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Students Portal Section */}
+      <section id="students-portal" className="py-32 bg-white dark:bg-background-dark border-b border-primary/5 relative scroll-mt-24">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20 flex flex-col items-center justify-center">
+            <div className="w-20 h-20 rounded-3xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+              <BookOpen className="w-10 h-10" />
+            </div>
+            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">خدمات الطلاب</h2>
+            <h3 className="text-5xl font-black text-slate-900 dark:text-slate-100">بوابة الطلاب</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-6 max-w-2xl text-lg leading-relaxed">
+              مركز شامل يتيح للطلاب الوصول إلى أدوات التعلم الرقمية والمصادر التعليمية والأنشطة اللامنهجية الممتعة.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="flex flex-col p-10 bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <MonitorPlay className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">نظام التعلم LMS</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                منصة التعلم الإلكتروني المتقدمة لمتابعة الدروس والواجبات والاختبارات بشكل تفاعلي.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">دروس تفاعلية ومحتوى مرئي متقدم</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">تسليم الواجبات ومتابعة الدرجات</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">تواصل مباشر مع المعلمين</span></li>
+              </ul>
+            </div>
+            <div className="flex flex-col p-10 bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <BookOpen className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">المكتبة الرقمية</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                الوصول لأكثر من 100,000 مجلة أكاديمية ومصدر بحثي عالمي متنوع لتعزيز المعرفة.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">قاعدة بيانات أكاديمية ضخمة ومتنوعة</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">كتب إلكترونية ومراجع علمية معتمدة</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">بحث متقدم وتصفح سهل الاستخدام</span></li>
+              </ul>
+            </div>
+            <div className="flex flex-col p-10 bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/10 text-slate-900 dark:text-white">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <Sparkles className="w-8 h-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4">الأندية والمواهب</h4>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                استكشف الأنشطة اللامنهجية والنوادي المتنوعة لصقل المواهب والإبداع في بيئة محفزة.
+              </p>
+              <ul className="space-y-3 text-right">
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">أندية الروبوتكس والبرمجة والإبداع</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">فرق رياضية وفنية متخصصة</span></li>
+                <li className="flex items-start gap-3 text-[15px] text-slate-600 dark:text-slate-400"><CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> <span className="leading-relaxed">مسابقات ومعارض محلية ودولية</span></li>
+              </ul>
             </div>
           </div>
         </div>

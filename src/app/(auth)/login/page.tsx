@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const { login } = useAuth();
   const router = useRouter();
 
@@ -117,7 +117,7 @@ export default function LoginPage() {
                   {error}
                 </div>
               )}
-              
+
               <div>
                 <label className="block text-sm font-bold text-slate-900 dark:text-slate-200 mb-2">البريد الإلكتروني / رقم الطالب</label>
                 <div className="relative group">
@@ -157,7 +157,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-4 space-y-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -168,15 +168,33 @@ export default function LoginPage() {
                   ) : (
                     <>
                       دخول البوابة
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform rotate-180" />
+                      <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                     </>
                   )}
+                </button>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    setIsSubmitting(true);
+                    try {
+                      await login(`demo-${role}@saudi-elite.edu.sa`, "demo123");
+                      router.push(`/${role}`);
+                    } catch (err: any) {
+                      setError(err.message);
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }}
+                  disabled={isSubmitting}
+                  className="w-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 font-bold py-3 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm"
+                >
+                  Demo login
                 </button>
               </div>
             </form>
           </div>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8">
             <p className="text-slate-500 dark:text-slate-400 font-medium">
               ليس لديك حساب؟ <Link href="/careers" className="font-black text-primary hover:text-primary-hover hover:underline transition-colors">قدم طلب التحاق الآن</Link>
             </p>

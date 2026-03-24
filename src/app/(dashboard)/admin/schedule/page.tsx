@@ -99,7 +99,7 @@ export default function AdminSchedulePage() {
                   
                   {periods.map((p, j) => {
                     // Generate a better unique hash for the specific class
-                    let str = selectedGrade + selectedClass;
+                    const str = selectedGrade + selectedClass;
                     let hash = 0;
                     for (let k = 0; k < str.length; k++) hash = str.charCodeAt(k) + ((hash << 5) - hash);
                     const classHash = Math.abs(hash);

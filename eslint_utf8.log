@@ -1,0 +1,139 @@
+﻿
+> saudi-elite-academy@0.1.0 lint
+> eslint
+
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(auth)\login\page.tsx
+   29:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  182:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(auth)\reset-password\page.tsx
+  5:16  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\finance\page.tsx
+    4:10  warning  'CreditCard' is defined but never used    @typescript-eslint/no-unused-vars
+    4:32  warning  'Search' is defined but never used        @typescript-eslint/no-unused-vars
+    4:40  warning  'Filter' is defined but never used        @typescript-eslint/no-unused-vars
+    4:96  warning  'X' is defined but never used             @typescript-eslint/no-unused-vars
+   13:23  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  179:38  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\latest-records\page.tsx
+   4:17  warning  'Search' is defined but never used        @typescript-eslint/no-unused-vars
+  12:52  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\new-students\page.tsx
+  4:56  warning  'Mail' is defined but never used      @typescript-eslint/no-unused-vars
+  4:69  warning  'Calendar' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\notifications\page.tsx
+  3:49  warning  'Users' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\page.tsx
+   4:56  warning  'Edit' is defined but never used                     @typescript-eslint/no-unused-vars
+   4:62  warning  'Trash2' is defined but never used                   @typescript-eslint/no-unused-vars
+  11:9   warning  'showToast' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  16:23  warning  'setEnrollments' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\schedule\page.tsx
+    4:10  warning  'CalendarDays' is defined but never used        @typescript-eslint/no-unused-vars
+    4:32  warning  'Search' is defined but never used              @typescript-eslint/no-unused-vars
+  102:25  error    'str' is never reassigned. Use 'const' instead  prefer-const
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\settings\page.tsx
+  3:34  warning  'Globe' is defined but never used  @typescript-eslint/no-unused-vars
+  3:41  warning  'Bell' is defined but never used   @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\students\page.tsx
+   4:10  warning  'Users' is defined but never used                   @typescript-eslint/no-unused-vars
+   4:56  warning  'MoreVertical' is defined but never used            @typescript-eslint/no-unused-vars
+  17:52  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  28:9   warning  'confirmExport' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\teachers\page.tsx
+   4:10  warning  'BookOpen' is defined but never used      @typescript-eslint/no-unused-vars
+   4:42  warning  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+  15:52  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\admin\upcoming-events\page.tsx
+  12:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\parent\finance\page.tsx
+  4:58  warning  'ChevronDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\parent\messages\page.tsx
+  4:10  warning  'Bell' is defined but never used   @typescript-eslint/no-unused-vars
+  5:8   warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\parent\settings\page.tsx
+  3:22  warning  'Bell' is defined but never used      @typescript-eslint/no-unused-vars
+  3:28  warning  'Globe' is defined but never used     @typescript-eslint/no-unused-vars
+  3:35  warning  'Database' is defined but never used  @typescript-eslint/no-unused-vars
+  3:51  warning  'Activity' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\staff\classes\page.tsx
+  4:10  warning  'Users' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\staff\page.tsx
+  4:54  warning  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+  5:8   warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\staff\settings\page.tsx
+  3:22  warning  'Bell' is defined but never used      @typescript-eslint/no-unused-vars
+  3:28  warning  'Globe' is defined but never used     @typescript-eslint/no-unused-vars
+  3:35  warning  'Database' is defined but never used  @typescript-eslint/no-unused-vars
+  3:51  warning  'Activity' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\student\assignments\page.tsx
+  10:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\student\grades\page.tsx
+  4:10  warning  'BookOpen' is defined but never used    @typescript-eslint/no-unused-vars
+  4:20  warning  'TrendingUp' is defined but never used  @typescript-eslint/no-unused-vars
+  4:32  warning  'Award' is defined but never used       @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\student\schedule\page.tsx
+  4:36  warning  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\student\search\page.tsx
+  22:80   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  22:88   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  36:107  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  36:115  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\(dashboard)\student\settings\page.tsx
+  3:22  warning  'Bell' is defined but never used   @typescript-eslint/no-unused-vars
+  3:28  warning  'Globe' is defined but never used  @typescript-eslint/no-unused-vars
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\academics\page.tsx
+  118:11  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  118:95  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\news\[id]\page.tsx
+  6:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\app\page.tsx
+  271:40  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  271:58  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\components\ui\Modal.tsx
+  17:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+W:\Vibe Coding\Antigravity\Saudi Elite Academy\saudi-elite-academy\src\components\ui\Modal.tsx:17:5
+  15 |
+  16 |   useEffect(() => {
+> 17 |     setMounted(true);
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  18 |   }, []);
+  19 |
+  20 |   if (!mounted || !isOpen) return null;  react-hooks/set-state-in-effect
+
+Ô£û 62 problems (20 errors, 42 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

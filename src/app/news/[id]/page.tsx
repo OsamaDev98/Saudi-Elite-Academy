@@ -38,8 +38,9 @@ const newsData: Record<string, any> = {
   }
 };
 
-export default function NewsArticlePage({ params }: { params: { id: string } }) {
-  const article = newsData[params.id] || newsData["1"]; // Default to first if not found
+export default async function NewsArticlePage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const article = newsData[resolvedParams.id] || newsData["1"]; // Default to first if not found
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark pb-20">

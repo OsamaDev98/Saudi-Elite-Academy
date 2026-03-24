@@ -1,0 +1,20 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "student@gmail.com",
+  "loginPassword": "student123",
+  "executionArgs": {
+    "projectName": "saudi-elite-academy",
+    "projectPath": "w:\\Vibe Coding\\Antigravity\\Saudi Elite Academy\\saudi-elite-academy",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-PV_jsgv-HEq2uJ9IuISHk58QpbeiiJvpWomKrTw8YsvcgY7Hg6KMMixGvEP1mntf8YJ3Lbd7jR7HddYhvxxhWwrndshfHoUkJxMhCPOU9pkFIxndVpxv69gDiq-TDpryGbA"
+    }
+  },
+  "serverPort": 50586,
+  "proxy": "http://daeafc5e-f17f-4544-a422-cb95a6e401c3:MF1PYZFmfUa2EfCKJxYS52fXS848TEZD@tun.testsprite.com:8080"
+}

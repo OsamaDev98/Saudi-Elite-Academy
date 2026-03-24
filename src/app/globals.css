@@ -45,6 +45,12 @@
   html {
     @apply font-sans scroll-smooth;
   }
+  button, 
+  a,
+  summary,
+  [role="button"] {
+    @apply cursor-pointer;
+  }
 }
 
 .islamic-pattern {

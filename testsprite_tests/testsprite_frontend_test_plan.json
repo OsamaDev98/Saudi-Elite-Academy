@@ -1,0 +1,926 @@
+[
+  {
+    "id": "TC001",
+    "title": "Header navigation: Login link opens the login page",
+    "description": "Verifies that the header 'Login' link from the landing page takes the user to the /login route.",
+    "category": "Navigation",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\" in the header navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Mobile menu: Home link returns to landing page",
+    "description": "Verifies that the mobile menu can be opened and the 'Home' link navigates to the landing page.",
+    "category": "Navigation",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open mobile menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Mobile navigation menu\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Home\" in the mobile menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Mobile menu: Close behavior does not navigate away from current page",
+    "description": "Verifies the mobile menu can be opened and dismissed without changing the current route.",
+    "category": "Navigation",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open mobile menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Mobile navigation menu\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Press \"Escape\" key"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Demo login as Admin redirects to Admin dashboard",
+    "description": "Verifies selecting the admin role and using Demo login lands the user on the Admin dashboard.",
+    "category": "Login",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"admin\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Admin\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Demo login as Student redirects to Student dashboard",
+    "description": "Verifies selecting the student role and using Demo login lands the user on the Student dashboard.",
+    "category": "Login",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"student\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Student\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Demo login without selecting a role shows validation error",
+    "description": "Verifies the login form blocks submission and shows an error when no role is selected.",
+    "category": "Login",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Please select a role\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/login\""
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Demo login as Parent redirects to Parent dashboard",
+    "description": "Verifies selecting the parent role and using Demo login lands the user on the Parent dashboard.",
+    "category": "Login",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"parent\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/parent\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Parent\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Demo login as Staff redirects to Staff dashboard",
+    "description": "Verifies selecting the staff role and using Demo login lands the user on the Staff dashboard.",
+    "category": "Login",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Staff\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Role selection can be changed before demo login and uses the final selection",
+    "description": "Verifies that changing the selected role prior to clicking Demo login determines the destination dashboard.",
+    "category": "Login",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"admin\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Select \"student\" from dropdown \"Role\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Refreshing /login shows the role is not preselected",
+    "description": "Verifies the login page does not display a preselected role on initial load.",
+    "category": "Login",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Select a role\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Demo login\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Admin dashboard loads and shows stats panel and quick links (authenticated)",
+    "description": "Verifies an authenticated user can open the Admin dashboard and see the stats area and available quick links.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" or \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /admin"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Stats\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enrollments\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Admin dashboard stats are visible and readable (smoke check)",
+    "description": "Verifies key stats content is rendered on the Admin dashboard after login (basic presence check of metrics).",
+    "category": "Admin Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" or \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /admin"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"stats panel\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enrollments\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Admin quick link: click Enrollments and view enrollments page/section",
+    "description": "Verifies the Enrollments quick link is clickable and leads to an enrollments view or details content.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" or \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /admin"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Enrollments\" quick link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enrollment\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"admin\""
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Admin quick link: Enrollments is visible and enabled",
+    "description": "Verifies the Enrollments quick link is present on the Admin dashboard and appears actionable.",
+    "category": "Admin Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" or \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /admin"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Enrollments quick link\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enrollments\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Student demo login redirects to Student Dashboard and shows core stats",
+    "description": "Verifies a student can use demo login and see the Student Dashboard overview content.",
+    "category": "Student Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select role \"student\" from the role selector"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Student Dashboard\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"student stats\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Role selection persists: choosing student then demo login lands on /student (not other dashboards)",
+    "description": "Verifies that selecting the student role results in the student dashboard after demo login.",
+    "category": "Student Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select role \"student\" from the role selector"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Student Dashboard\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Student Dashboard shows multiple visible stat items/sections on initial load",
+    "description": "Verifies the student overview renders more than a single header by checking multiple dashboard sections are visible.",
+    "category": "Student Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select role \"student\" from the role selector"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"student stats\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"student links\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Student demo login handles rapid interaction without breaking redirect",
+    "description": "Verifies the app remains stable if the demo login button is clicked quickly and still ends on the student dashboard.",
+    "category": "Student Dashboard",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select role \"student\" from the role selector"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Demo login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Student Dashboard\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Demo login as Parent redirects to Parent dashboard",
+    "description": "Verifies that selecting the parent role and using Demo login takes the user to the Parent dashboard page.",
+    "category": "Parent Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Login\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"parent\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/parent\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Parent\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Parent dashboard shows overview content after demo login",
+    "description": "Verifies that the Parent dashboard loads visible overview content after a successful demo login.",
+    "category": "Parent Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"parent\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/parent\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Parent dashboard\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Overview\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Demo login without selecting a role shows an error or blocks login",
+    "description": "Verifies the login page prevents demo login when no role is selected and provides visible feedback.",
+    "category": "Parent Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Select role\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Switching role selection away from parent does not land on /parent",
+    "description": "Verifies that selecting a non-parent role and using Demo login does not redirect to the Parent dashboard.",
+    "category": "Parent Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"student\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/parent\""
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Parent dashboard page title is appropriate after demo login",
+    "description": "Verifies the browser page title reflects the Parent dashboard context after login.",
+    "category": "Parent Dashboard",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"parent\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/parent\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Parent\""
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Staff demo login redirects to Staff Dashboard",
+    "description": "Verifies a user can select the staff role on the login page, use Demo login, and reach the Staff Dashboard.",
+    "category": "Staff Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Login\""
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Staff\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Staff dashboard\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Staff Dashboard page shows staff-specific overview content after demo login",
+    "description": "Verifies the Staff Dashboard displays visible staff overview content (stats/tools sections) after demo login.",
+    "category": "Staff Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Staff Dashboard\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Stats\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Tools\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC026",
+    "title": "Staff role selection persists through demo login action",
+    "description": "Verifies selecting the staff role results in landing on the staff-specific route (not another role dashboard).",
+    "category": "Staff Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/student\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL does not contain \"/parent\""
+      }
+    ]
+  },
+  {
+    "id": "TC027",
+    "title": "Staff demo login works from a fresh visit to landing page then login page",
+    "description": "Verifies user can start at the landing page, proceed to login, and complete staff demo login to reach /staff.",
+    "category": "Staff Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/login\""
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      }
+    ]
+  },
+  {
+    "id": "TC028",
+    "title": "Staff dashboard page is stable and renders primary header content",
+    "description": "Verifies the Staff Dashboard loads without empty state by checking key header/overview elements are visible after demo login.",
+    "category": "Staff Dashboard",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Select \"staff\" from the role dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Demo login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/staff\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Header\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Overview\" is visible"
+      }
+    ]
+  }
+]

@@ -133,15 +133,15 @@ export default function Home() {
                 بوابة أولياء الأمور
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#parents-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <CalendarDays className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">التقويم المهني</span>
                 </Link>
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#parents-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <Shirt className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">متجر الزي</span>
                 </Link>
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#parents-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <CreditCard className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">الرسوم والمالية</span>
                 </Link>
@@ -155,15 +155,15 @@ export default function Home() {
                 بوابة الطلاب
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#students-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <MonitorPlay className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">نظام التعلم LMS</span>
                 </Link>
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#students-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <BookOpen className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">المكتبة الرقمية</span>
                 </Link>
-                <Link href="/admin" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
+                <Link href="/admissions#students-portal" className="flex flex-col items-center gap-4 text-center p-8 bg-white rounded-3xl hover:bg-primary hover:text-white shadow-sm hover:shadow-premium border border-slate-100 transition-all duration-300 text-slate-900 group/link">
                   <Sparkles className="w-12 h-12 text-primary group-hover/link:text-white group-hover/link:scale-110 transition-transform duration-300" />
                   <span className="text-sm font-black">الأندية والمواهب</span>
                 </Link>

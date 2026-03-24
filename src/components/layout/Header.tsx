@@ -70,7 +70,7 @@ export function Header() {
       {isMobileMenuOpen && typeof document !== "undefined" && createPortal(
         <div className="lg:hidden absolute inset-0 z-[100] h-screen w-screen flex flex-col pointer-events-none">
           <div
-            className="fixed top-[96px] left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm pointer-events-auto transition-opacity"
+            className="fixed top-[96px] left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm pointer-events-auto transition-opacity cursor-pointer"
             onClick={() => setIsMobileMenuOpen(false)}
           />
           <div className="fixed top-[96px] left-0 w-full bg-white dark:bg-background-dark border-b border-primary/10 shadow-lg px-4 pt-4 pb-8 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300 pointer-events-auto">

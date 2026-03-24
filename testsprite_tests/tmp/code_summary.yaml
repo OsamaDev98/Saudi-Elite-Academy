@@ -1,0 +1,62 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React
+  - Next.js
+  - TailwindCSS
+  - Lucide React
+routes:
+  - path: /
+    file: src/app/page.tsx
+    auth_required: false
+    description: Landing page
+  - path: /login
+    file: src/app/(auth)/login/page.tsx
+    auth_required: false
+    description: User login page
+  - path: /admin
+    file: src/app/(dashboard)/admin/page.tsx
+    auth_required: true
+    description: Admin dashboard overview
+  - path: /student
+    file: src/app/(dashboard)/student/page.tsx
+    auth_required: true
+    description: Student dashboard overview
+  - path: /parent
+    file: src/app/(dashboard)/parent/page.tsx
+    auth_required: true
+    description: Parent dashboard overview
+  - path: /staff
+    file: src/app/(dashboard)/staff/page.tsx
+    auth_required: true
+    description: Staff dashboard overview
+features:
+  - name: Navigation
+    description: Navigate between public pages
+    files:
+      - src/components/layout/Header.tsx
+    entry_route: /
+    user_interactions:
+      - Click navigation links
+      - Open mobile menu
+    api_calls: []
+  - name: Login
+    description: Log into the system using different roles
+    files:
+      - src/app/(auth)/login/page.tsx
+    entry_route: /login
+    user_interactions:
+      - Select role (admin, student, parent, staff)
+      - Demo login click triggers login
+    api_calls: []
+  - name: Admin Dashboard
+    description: View stats and quick links for admin
+    files:
+      - src/app/(dashboard)/admin/page.tsx
+    entry_route: /admin
+    user_interactions:
+      - View stats
+      - Click to see enrollments
+    api_calls: []
+known_limitations: []

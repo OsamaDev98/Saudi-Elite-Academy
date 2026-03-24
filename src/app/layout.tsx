@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Public_Sans } from "next/font/google";
+import { Cairo } from "next/font/google";
+import { ClientLayout } from "@/components/layout/ClientLayout";
+import { AuthProvider } from "@/lib/supabase/context";
 import "./globals.css";
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
+const cairo = Cairo({
+  variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
@@ -20,10 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className="scroll-smooth">
-      <body
-        className={`${publicSans.variable} antialiased`}
-      >
-        {children}
+      <body className={`${cairo.variable} antialiased min-h-screen flex flex-col`}>
+        <AuthProvider>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </AuthProvider>
       </body>
     </html>
   );
